@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     //id("com.android.application")
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -66,6 +68,38 @@ dependencies {
     // Firebase UI Library
     implementation("com.firebaseui:firebase-ui-auth:8.0.2")
     implementation("com.firebaseui:firebase-ui-database:8.0.2")
+    implementation(libs.firebase.firestore.ktx)
+
+// Dagger Hilt
+    implementation("com.google.dagger:hilt-android:2.51")
+    kapt("com.google.dagger:hilt-android-compiler:2.51")
+
+// Hilt Extensions for AndroidX
+    implementation("androidx.hilt:hilt-work:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
+
+
+//    // Coroutines
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
+//
+//    // Coroutine Lifecycle Scopes
+//    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+//    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+//
+//    // Coil
+//    implementation("io.coil-kt:coil-compose:2.7.0")
+//
+//    // Retrofit
+//    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+//
+//    // OkHttp
+//    //implementation("com.squareup.okhttp3:okhttp:5.0.0")
+//
+//    // JSON Converter
+//    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
